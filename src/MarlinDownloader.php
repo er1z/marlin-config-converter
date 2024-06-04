@@ -24,7 +24,7 @@ class MarlinDownloader
     public function __invoke(string $version): string
     {
         $path = sprintf('%s/Marlin-%s.zip', $this->tmpDirectory, $version);
-        $downloadedFile = file_get_contents(sprintf('%s/archive/refs/tags/%s.zip', $this->urlBaseline, $version));
+        $downloadedFile = @file_get_contents(sprintf('%s/archive/refs/tags/%s.zip', $this->urlBaseline, $version));
         file_put_contents(
             $path,
             $downloadedFile
