@@ -37,5 +37,7 @@ jobs:
           ${{ runner.os }}-php-
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    - name: PHPStan Static Analysis
+      uses: php-actions/phpstan@v3
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
