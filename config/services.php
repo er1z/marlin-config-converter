@@ -9,7 +9,7 @@ return function (ContainerConfigurator $container): void {
         ->autoconfigure()
     ;
 
-    $services->load('Eriz\\MarlinConfigConverter\\', '../src/')
+    $services->load('Er1z\\MarlinConfigConverter\\', '../src')
         ->exclude('../src/{Kernel.php}');
 
     $services
