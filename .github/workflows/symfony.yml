@@ -12,8 +12,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      actions: write
     steps:
     - uses: shivammathur/setup-php@v2
       with:
