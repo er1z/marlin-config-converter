@@ -5,8 +5,6 @@ namespace Tests\Er1z\MarlinConfigConverter\Integration;
 use Er1z\MarlinConfigConverter\Exception\MarlinDownloadFailedException;
 use Er1z\MarlinConfigConverter\MarlinDownloader;
 use org\bovigo\vfs\vfsStream;
-use org\bovigo\vfs\vfsStreamDirectory;
-use org\bovigo\vfs\vfsStreamFile;
 use PHPUnit\Framework\TestCase;
 
 class MarlinDownloaderTest extends TestCase
@@ -19,15 +17,12 @@ class MarlinDownloaderTest extends TestCase
 
         $this->vfs = vfsStream::setup();
     }
-
     private function loadZipStub(): void
     {
-        $tagsDir = vfsStream::newDirectory('archive/refs/tags');
-        $this->vfs->addChild($tagsDir->at($this->vfs));
-        /** @var vfsStreamDirectory $tagsDir */
-        $tagsDir = $this->vfs->getChild('archive/refs/tags');
-        $tagsDir->addChild(
-            (new vfsStreamFile('1.0.0.zip'))->setContent((string) file_get_contents(sprintf('%s/../stubs/Marlin-1.0.0.zip', __DIR__)))
+        mkdir(sprintf('%s/archive/refs/tags', $this->vfs->url()), recursive: true);
+        file_put_contents(
+            sprintf('%s/archive/refs/tags/1.0.0.zip', $this->vfs->url()),
+            (string) file_get_contents(sprintf('%s/../stubs/Marlin-1.0.0.zip', __DIR__))
         );
     }
 
