@@ -30,7 +30,7 @@ class ConvertCommand extends Command
         );
         $this->addOption(
             'configuration-adv',
-            'ca',
+            null,
             InputOption::VALUE_REQUIRED,
             'Path to Configuration_adv.h'
         );
