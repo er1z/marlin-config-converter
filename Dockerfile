@@ -7,5 +7,5 @@ RUN docker-php-ext-install zip
 ENV APP_ENV=prod
 
 USER 1000
-COPY --chown=1000:1000 converter.phar /app/converter.phar
+COPY --chown=1000:1000 bin/converter.phar /app/converter.phar
 CMD ["php", "/app/converter.phar"]
