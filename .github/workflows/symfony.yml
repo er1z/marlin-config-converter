@@ -35,12 +35,12 @@ jobs:
     - name: Build PHAR
       run: box compile
     - name: Ensure the PHAR works
-      run: APP_ENV=prod bin/converter.phar --ansi --version
+      run: APP_ENV=prod converter.phar --ansi --version
     - name: Store binary
       uses: actions/upload-artifact@v4
       with:
         name: converter.phar
-        path: bin/converter.phar
+        path: converter.phar
 
   release:
     needs: [build]
@@ -67,7 +67,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: converter.phar
-          path: bin/converter.phar
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx

@@ -1,5 +1,6 @@
 {
   "force-autodiscovery": true,
   "directories": ["config", "var/cache/prod", "var/log"],
-  "files": ["minion.cpp"]
+  "files": ["minion.cpp"],
+  "output": "converter.phar"
 }
