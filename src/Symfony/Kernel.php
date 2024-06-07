@@ -15,4 +15,9 @@ class Kernel extends \Symfony\Component\HttpKernel\Kernel
     {
         $loader->load(__DIR__.'/../../config/services.php');
     }
+
+    public function getProjectDir(): string
+    {
+        return '.';
+    }
 }
