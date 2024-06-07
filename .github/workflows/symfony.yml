@@ -36,7 +36,7 @@ jobs:
       run: box compile
     - name: Ensure the PHAR works
       run: APP_ENV=prod php converter.phar --ansi --version
-    - name: Store binary
+    - name: Store artifact
       uses: actions/upload-artifact@v4
       with:
         name: converter.phar
@@ -82,5 +82,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-#          push: true
+          push: true
           tags: er1z/marlin-config-converter:latest
