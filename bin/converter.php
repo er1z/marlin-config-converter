@@ -6,7 +6,8 @@ use Symfony\Component\Console\Application;
 
 $application = new Application();
 
-$kernel = new Er1z\MarlinConfigConverter\Symfony\Kernel(getenv('APP_ENV') ?: 'dev', true);
+$env = getenv('APP_ENV');
+$kernel = new Er1z\MarlinConfigConverter\Symfony\Kernel($env ?: 'prod', $env === 'dev');
 $kernel->boot();
 
 $container = $kernel->getContainer();
