@@ -1,6 +1,8 @@
 {
   "force-autodiscovery": true,
-  "directories": ["config", "var/cache/prod", "var/log"],
+  "directories": ["config", "var", "bin"],
   "files": ["minion.cpp"],
-  "output": "converter.phar"
+  "output": "converter.phar",
+  "check-requirements": false,
+  "exclude-composer-files": false
 }

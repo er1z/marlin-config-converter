@@ -18,6 +18,7 @@ class Kernel extends \Symfony\Component\HttpKernel\Kernel
 
     public function getProjectDir(): string
     {
-        return '.';
+        $isPhar = \Phar::running();
+        return !empty($isPhar) ? $isPhar : __DIR__.'/../..';
     }
 }
